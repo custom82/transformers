@@ -21,7 +21,7 @@ from functools import partial
 from typing import Any, Optional
 
 import numpy as np
-from huggingface_hub import create_repo, is_offline_mode
+from huggingface_hub import create_repo
 from huggingface_hub.dataclasses import validate_typed_dict
 
 from .dynamic_module_utils import custom_object_save
@@ -49,7 +49,7 @@ from .utils import (
     logging,
     safe_load_json_file,
 )
-from .utils.hub import cached_file
+from .utils.hub import cached_file, is_offline_mode
 from .utils.import_utils import requires
 from .video_utils import (
     VideoInput,
