@@ -20,7 +20,7 @@ from typing import Any
 
 import httpx
 import yaml
-from huggingface_hub import is_offline_mode, model_info
+from huggingface_hub import model_info
 from huggingface_hub.errors import OfflineModeIsEnabled
 from huggingface_hub.utils import HFValidationError
 
@@ -49,6 +49,7 @@ from .utils import (
     is_torch_available,
     logging,
 )
+from .utils.hub import is_offline_mode
 
 
 TASK_MAPPING = {

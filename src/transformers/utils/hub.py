@@ -26,6 +26,7 @@ from typing import TypedDict
 from uuid import uuid4
 
 import httpx
+import huggingface_hub
 from huggingface_hub import (
     _CACHED_NO_EXIST,
     CommitOperationAdd,
@@ -37,7 +38,6 @@ from huggingface_hub import (
     create_repo,
     hf_hub_download,
     hf_hub_url,
-    is_offline_mode,
     list_repo_tree,
     snapshot_download,
     try_to_load_from_cache,
@@ -71,6 +71,16 @@ CHAT_TEMPLATE_DIR = "additional_chat_templates"
 
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
+
+
+def is_offline_mode():
+    hub_is_offline_mode = getattr(huggingface_hub, "is_offline_mode", None)
+    if hub_is_offline_mode is not None:
+        return hub_is_offline_mode()
+    return (
+        os.environ.get("HF_HUB_OFFLINE") in ENV_VARS_TRUE_VALUES
+        or os.environ.get("TRANSFORMERS_OFFLINE") in ENV_VARS_TRUE_VALUES
+    )
 
 
 class DownloadKwargs(TypedDict, total=False):

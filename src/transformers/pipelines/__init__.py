@@ -19,7 +19,7 @@ import warnings
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Optional, Union
 
-from huggingface_hub import is_offline_mode, model_info
+from huggingface_hub import model_info
 
 from ..configuration_utils import PreTrainedConfig
 from ..dynamic_module_utils import get_class_from_dynamic_module
@@ -44,6 +44,7 @@ from ..utils import (
     is_torch_available,
     logging,
 )
+from ..utils.hub import is_offline_mode
 from .any_to_any import AnyToAnyPipeline
 from .audio_classification import AudioClassificationPipeline
 from .automatic_speech_recognition import AutomaticSpeechRecognitionPipeline

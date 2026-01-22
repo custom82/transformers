@@ -19,7 +19,6 @@ from typing import Any
 
 import numpy as np
 import torch
-from huggingface_hub import is_offline_mode
 from huggingface_hub.dataclasses import validate_typed_dict
 from PIL import ImageDraw, ImageFont
 from torchvision.transforms.functional import pil_to_tensor, to_pil_image
@@ -44,7 +43,7 @@ from ...utils import (
     logging,
     safe_load_json_file,
 )
-from ...utils.hub import cached_file
+from ...utils.hub import cached_file, is_offline_mode
 from ...utils.import_utils import is_tracing, requires
 from ...video_processing_utils import BASE_VIDEO_PROCESSOR_DOCSTRING, BaseVideoProcessor
 from ...video_utils import (

@@ -30,7 +30,7 @@ from pathlib import Path
 from types import ModuleType
 from typing import Any
 
-from huggingface_hub import is_offline_mode, try_to_load_from_cache
+from huggingface_hub import try_to_load_from_cache
 from packaging import version
 
 from .utils import (
@@ -40,6 +40,7 @@ from .utils import (
     extract_commit_hash,
     logging,
 )
+from .utils.hub import is_offline_mode
 from .utils.import_utils import VersionComparison, split_package_version
 
 

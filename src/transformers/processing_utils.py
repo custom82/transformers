@@ -28,7 +28,7 @@ from typing import Annotated, Any, Literal, TypedDict, TypeVar, Union
 
 import numpy as np
 import typing_extensions
-from huggingface_hub import create_repo, is_offline_mode
+from huggingface_hub import create_repo
 from huggingface_hub.dataclasses import validate_typed_dict
 from huggingface_hub.errors import EntryNotFoundError
 
@@ -59,6 +59,7 @@ from .utils import (
     logging,
 )
 from .utils.chat_template_utils import render_jinja_template
+from .utils.hub import is_offline_mode
 from .utils.type_validators import (
     device_validator,
     image_size_validator,
