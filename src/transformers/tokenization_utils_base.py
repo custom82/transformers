@@ -32,7 +32,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any, NamedTuple, Union
 
 import numpy as np
-from huggingface_hub import create_repo, is_offline_mode, list_repo_files
+from huggingface_hub import create_repo, list_repo_files
 from packaging import version
 
 from . import __version__
@@ -62,6 +62,7 @@ from .utils import (
 )
 from .utils.chat_parsing_utils import recursive_parse
 from .utils.chat_template_utils import render_jinja_template
+from .utils.hub import is_offline_mode
 from .utils.import_utils import PROTOBUF_IMPORT_ERROR
 
 
